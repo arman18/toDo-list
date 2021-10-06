@@ -431,4 +431,7 @@ a {
     width: 100%;
     max-width: 288px;
   }
+  .row{
+      margin-left: 40px;
+    }
 }
