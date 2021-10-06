@@ -23,9 +23,7 @@ $('.list').on('mouseenter','.list-item',function(e){
 $('input').on('keydown',function(e){ 
   if(e.key=='Enter') $('.add-btn').click();
 });
-$('.add-btn').on('click', function () {
-  let input = $(this).siblings('.input').val();
-  if (input == '') return;
+function appendUi(input){
   let element = '<div class="list-item"><div class="circle"><img src="Vector.png" loading="lazy" width="15" height="15" alt="checked" class="img hide"></div><div class="item-text">';
   element += input;
   element += '</div><div class="row"><div class="action hide"><div class="undone hide">Undone</div><div class="done">Done</div><div class="delete">Delete</div></div></div></div>'
@@ -33,4 +31,24 @@ $('.add-btn').on('click', function () {
   window.scrollBy(0, 100);
   $('.list').last().css('overflow-wrap', 'break-word');
   $('.list').last().css('word-wrap', 'break-word');
+}
+$('.add-btn').on('click', function () {
+  let input = $(this).siblings('.input').val();
+  if (input == '') return;
+  addToList(input);
+  appendUi(input);
 });
+// retrieving from localStorage
+
+const existingTodo = JSON.parse(localStorage.getItem('todos'));
+const todoList = existingTodo || [];
+todoList.forEach(element => {
+  appendUi(element);
+});
+// saving stuff to local storage
+
+function addToList(input){
+  todoList.push(input);
+  localStorage.setItem('todos',JSON.stringify(todoList));
+}
+
