@@ -9,4 +9,4 @@ simple to do list app using html css and jquery
 4. mobile responsive
 5. List item can be mark as done,undone or delete forever from list
 
-<a href="https://arman18.github.io/toDo-list/"> **live site** </a>
+# Go to <a href="https://arman18.github.io/toDo-list/"> **live** </a> site
